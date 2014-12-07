@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_rl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.example.ui.base.TitleIndicator
+        android:id="@+id/pagerindicator"
+        android:layout_width="fill_parent"
+        android:layout_height="29dp"
+        android:layout_below="@+id/layout_title_bar"
+        android:background="#ffffff"
+        app:footerColor="@color/main_color"
+        app:footerLineHeight="0dp"
+        app:footerTriangleHeight="0.0dp"
+        app:textColor="@color/tab_indicator_text"
+        app:textSizeNormal="@dimen/common_text_size_middle_2"
+        app:textSizeSelected="@dimen/common_text_size_middle_2" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/main_color"
+        android:layout_below="@+id/pagerindicator"
+        android:text="" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_home"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/line"
+        android:layout_marginTop="0dp" />
+
+</RelativeLayout>

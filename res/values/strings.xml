@@ -4,5 +4,8 @@
     <string name="app_name">油耗</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="fragment_one">精选</string>
+    <string name="fragment_two">热门</string>
+    <string name="fragment_three">最新</string>
 
 </resources>

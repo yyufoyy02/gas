@@ -1,22 +1,31 @@
 package com.example.gas;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import java.util.List;
 
-public class MainActivity extends Activity {
-       
+import android.os.Bundle;
+
+import com.example.fragment.FirstFragment;
+import com.example.fragment.SecondFragment;
+import com.example.fragment.ThirdFragment;
+import com.example.ui.base.IndicatorFragmentActivity;
+
+public class MainActivity extends IndicatorFragmentActivity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+	protected int supplyTabs(List<TabInfo> tabs) {
+		// TODO Auto-generated method stub
+		tabs.add(new TabInfo(0, getString(R.string.fragment_one),
+				FirstFragment.class));
+		tabs.add(new TabInfo(1, getString(R.string.fragment_two),
+				SecondFragment.class));
+		tabs.add(new TabInfo(2, getString(R.string.fragment_three),
+				ThirdFragment.class));
+		return 0;
 	}
 
 }
