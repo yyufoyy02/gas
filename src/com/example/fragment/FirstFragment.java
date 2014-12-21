@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.gas.R;
 
 /**
- * 最热
+ * 最热 
  * 
  * @author Administrator
  * 
