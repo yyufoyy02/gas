@@ -262,7 +262,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:clipPadding
+          @attr name com.example.gas:clipPadding
         */
         public static final int TitleIndicator_clipPadding = 1;
         /**
@@ -277,7 +277,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:footerColor
+          @attr name com.example.gas:footerColor
         */
         public static final int TitleIndicator_footerColor = 6;
         /**
@@ -293,7 +293,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:footerLineHeight
+          @attr name com.example.gas:footerLineHeight
         */
         public static final int TitleIndicator_footerLineHeight = 5;
         /**
@@ -309,7 +309,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:footerTriangleHeight
+          @attr name com.example.gas:footerTriangleHeight
         */
         public static final int TitleIndicator_footerTriangleHeight = 7;
         /**
@@ -321,7 +321,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name android:textColor
+          @attr name com.example.gas:textColor
         */
         public static final int TitleIndicator_textColor = 2;
         /**
@@ -337,7 +337,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:textSizeNormal
+          @attr name com.example.gas:textSizeNormal
         */
         public static final int TitleIndicator_textSizeNormal = 3;
         /**
@@ -353,7 +353,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:textSizeSelected
+          @attr name com.example.gas:textSizeSelected
         */
         public static final int TitleIndicator_textSizeSelected = 4;
         /**
@@ -369,7 +369,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:titlePadding
+          @attr name com.example.gas:titlePadding
         */
         public static final int TitleIndicator_titlePadding = 0;
     };
