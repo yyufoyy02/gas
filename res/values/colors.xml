@@ -1,5 +1,5 @@
 <resources>
-
+    <color name="line">#cccccc</color>
     <color name="main_color">#ff6699</color>
     <color name="login_user">#666</color>
     <color name="common_white">#ffffff</color>

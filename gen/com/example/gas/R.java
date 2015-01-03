@@ -89,35 +89,36 @@ containing a value of this type.
     public static final class color {
         /**  For suggestions 
          */
-        public static final int common_blue=0x7f04000d;
+        public static final int common_blue=0x7f04000e;
         /**  For main texts 
          */
-        public static final int common_dark=0x7f040005;
-        public static final int common_dark_disabled=0x7f040007;
-        public static final int common_dark_shadow=0x7f040006;
+        public static final int common_dark=0x7f040006;
+        public static final int common_dark_disabled=0x7f040008;
+        public static final int common_dark_shadow=0x7f040007;
         /**  For safe cases 
          */
-        public static final int common_green=0x7f04000c;
+        public static final int common_green=0x7f04000d;
         /**  For secondary texts 
          */
-        public static final int common_grey=0x7f040008;
-        public static final int common_grey_disabled=0x7f040009;
+        public static final int common_grey=0x7f040009;
+        public static final int common_grey_disabled=0x7f04000a;
         /**  For danger cases, such as virus, file delete... 
          */
-        public static final int common_red=0x7f04000a;
-        public static final int common_white=0x7f040002;
-        public static final int common_white_disabled=0x7f040004;
-        public static final int common_white_shadow=0x7f040003;
+        public static final int common_red=0x7f04000b;
+        public static final int common_white=0x7f040003;
+        public static final int common_white_disabled=0x7f040005;
+        public static final int common_white_shadow=0x7f040004;
         /**  For warning cases, such as trashes... 
          */
-        public static final int common_yellow=0x7f04000b;
-        public static final int login_user=0x7f040001;
-        public static final int main_color=0x7f040000;
-        public static final int mm_tab_btn=0x7f040011;
-        public static final int page_viewer_margin_color=0x7f040010;
-        public static final int tab_indicator_text=0x7f040012;
-        public static final int tab_indicator_text_selected=0x7f04000e;
-        public static final int tab_indicator_text_unselected=0x7f04000f;
+        public static final int common_yellow=0x7f04000c;
+        public static final int line=0x7f040000;
+        public static final int login_user=0x7f040002;
+        public static final int main_color=0x7f040001;
+        public static final int mm_tab_btn=0x7f040012;
+        public static final int page_viewer_margin_color=0x7f040011;
+        public static final int tab_indicator_text=0x7f040013;
+        public static final int tab_indicator_text_selected=0x7f04000f;
+        public static final int tab_indicator_text_unselected=0x7f040010;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -149,24 +150,24 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
-        public static final int layout_title_bar=0x7f090002;
-        public static final int line=0x7f090003;
-        public static final int main_home=0x7f090004;
+        public static final int action_settings=0x7f090007;
+        public static final int main_home=0x7f090003;
         public static final int main_rl=0x7f090000;
-        public static final int pagerindicator=0x7f090001;
-        public static final int tab_title=0x7f090005;
-        public static final int tab_title_sum=0x7f090006;
-        public static final int tab_title_tips=0x7f090007;
+        public static final int pagerindicator=0x7f090002;
+        public static final int tab_title=0x7f090004;
+        public static final int tab_title_sum=0x7f090005;
+        public static final int tab_title_tips=0x7f090006;
+        public static final int tv_home_add=0x7f090001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int firstfragment=0x7f030001;
-        public static final int homeactivity_main=0x7f030002;
-        public static final int secondfragment=0x7f030003;
-        public static final int thirdfragment=0x7f030004;
-        public static final int title_flow_indicator=0x7f030005;
-        public static final int title_flow_indicator_v2=0x7f030006;
+        public static final int gaseditactivity_main=0x7f030002;
+        public static final int homeactivity_main=0x7f030003;
+        public static final int secondfragment=0x7f030004;
+        public static final int thirdfragment=0x7f030005;
+        public static final int title_flow_indicator=0x7f030006;
+        public static final int title_flow_indicator_v2=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -185,11 +186,13 @@ containing a value of this type.
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
 
 
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
 
 
         
@@ -217,6 +220,8 @@ containing a value of this type.
         /**  tab样式 
          */
         public static final int TabStyle=0x7f070003;
+        public static final int line=0x7f070005;
+        public static final int myAppTheme=0x7f070006;
     }
     public static final class styleable {
         /** Attributes that can be used with a TitleIndicator.
