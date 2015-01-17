@@ -113,7 +113,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 		mPager.setPageMargin(getResources().getDimensionPixelSize(
 				R.dimen.page_margin_width));
 		// 设置viewpager内部页面间距的drawable
-		mPager.setPageMarginDrawable(R.color.main_color);
+		mPager.setPageMarginDrawable(R.color.green);
 	}
 
 	@Override
