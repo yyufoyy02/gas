@@ -2,34 +2,33 @@ package com.example.model;
 
 import java.io.Serializable;
 
-import com.activeandroid.Model;
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
-import com.example.util.MyUtil;
+import com.example.myutils.MyStringUtil;
+import com.lidroid.xutils.db.annotation.Column;
+import com.lidroid.xutils.db.annotation.Table;
 
 @SuppressWarnings("serial")
 @Table(name = "GasModels")
-public class GasModel extends Model implements Serializable {
+public class GasModel extends BaseModel implements Serializable {
 	public GasModel() {
 		// TODO Auto-generated constructor stub
 		super();
 	}
 
-	@Column(name = "data")
+	@Column(column = "data")
 	private String data;
-	@Column(name = "time")
+	@Column(column = "time")
 	private String time;
-	@Column(name = "mileage")
+	@Column(column = "mileage")
 	private int mileage;
-	@Column(name = "price")
+	@Column(column = "price")
 	private double price;
-	@Column(name = "amount")
+	@Column(column = "amount")
 	private double amount;
-	@Column(name = "oil")
+	@Column(column = "oil")
 	private double oil;
 
 	public String getData() {
-		return MyUtil.isEmpty(data, "");
+		return MyStringUtil.isEmpty(data, "");
 	}
 
 	public void setData(String data) {
@@ -37,7 +36,7 @@ public class GasModel extends Model implements Serializable {
 	}
 
 	public String getTime() {
-		return MyUtil.isEmpty(time, "");
+		return MyStringUtil.isEmpty(time, "");
 	}
 
 	public void setTime(String time) {

@@ -1,17 +1,43 @@
 package com.example.gas;
 
-import com.activeandroid.ActiveAndroid;
+import com.example.factory.XDbFactory;
+import com.example.myutils.MyLogger;
 
-public class MyApplication extends com.activeandroid.app.Application {
+import android.app.Application;
+import android.content.Context;
+
+public class MyApplication extends Application {
+	private static MyApplication sInstance;
+	public Context mContext;
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		ActiveAndroid.initialize(this);
+		sInstance = this;
+		mContext = getApplicationContext();
+		DataInit();
+		DebugMode(true);
+
 	}
 
-	@Override
-	public void onTerminate() {
-		super.onTerminate();
-		ActiveAndroid.dispose();
+	private void DebugMode(boolean b) {
+		// TODO Auto-generated method stub
+		MyLogger.setDebugMode(b);
+		XDbFactory.getInstance().getDB().configDebug(b);
+	}
+
+	private void DataInit() {
+		// TODO Auto-generated method stub
+		XDbFactory.getInstance().init(mContext);
+	}
+
+	/**
+	 * synchronized
+	 * 
+	 * @return ApplicationController singleton instance
+	 */
+	public static MyApplication getInstance() {
+
+		return sInstance;
 	}
 }
