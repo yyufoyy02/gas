@@ -1,6 +1,7 @@
 package com.example.factory;
 
 import com.lidroid.xutils.DbUtils;
+import com.lidroid.xutils.exception.DbException;
 
 import android.content.Context;
 
@@ -36,4 +37,5 @@ public class XDbFactory {
 	public DbUtils getDB() {
 		return db;
 	}
+
 }

@@ -1,5 +1,8 @@
 package com.example.gas;
 
+import java.util.List;
+
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -7,7 +10,8 @@ import android.widget.EditText;
 
 import com.example.factory.XDbFactory;
 import com.example.model.GasModel;
-import com.lidroid.xutils.DbUtils;
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 
 public class GasEditActivity extends BaseActivity {
 	private EditText edtDate, edtTime, edtMileage, edtPrice, edtAmount, edtOil;
@@ -39,9 +43,16 @@ public class GasEditActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				// List<GasModel> result = new Select().from(GasModel.class)
-				// .execute();
-				// Log.e("aa", result.toString());
+				List<GasModel> result = null;
+				try {
+					result = XDbFactory.getInstance().getDB()
+							.findAll(Selector.from(GasModel.class));
+				} catch (DbException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (result != null)
+					Log.e("aa", result.toString());
 			}
 		});
 	}
@@ -54,12 +65,18 @@ public class GasEditActivity extends BaseActivity {
 		mGasModel.setData("hhhhhhhhh");
 		mGasModel.setPrice(99.99);
 		mGasModel.setMileage(99);
-		XDbFactory.getInstance().getDB().save(mGasModel);
 		GasModel mGasModel2 = new GasModel();
 		mGasModel2.setAmount(888);
 		mGasModel2.setData("kkkkkkkkkk");
 		mGasModel2.setPrice(8888.8);
-		XDbFactory.getInstance().getDB().save(mGasModel);
+		try {
+			XDbFactory.getInstance().getDB().save(mGasModel);
+			XDbFactory.getInstance().getDB().save(mGasModel2);
+		} catch (DbException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
