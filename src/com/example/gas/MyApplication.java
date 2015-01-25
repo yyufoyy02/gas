@@ -1,10 +1,11 @@
 package com.example.gas;
 
-import com.example.factory.XDbFactory;
-import com.example.myutils.MyLogger;
-
 import android.app.Application;
 import android.content.Context;
+
+import com.cengalabs.flatui.FlatUI;
+import com.example.factory.XDbFactory;
+import com.example.myutils.MyLogger;
 
 public class MyApplication extends Application {
 	private static MyApplication sInstance;
@@ -26,9 +27,14 @@ public class MyApplication extends Application {
 		XDbFactory.getInstance().getDB().configDebug(b);
 	}
 
+	public int Theme = FlatUI.GRASS;
+
 	private void DataInit() {
 		// TODO Auto-generated method stub
 		XDbFactory.getInstance().init(mContext);
+		FlatUI.setDefaultTheme(Theme);
+		FlatUI.initDefaultValues(mContext);
+
 	}
 
 	/**

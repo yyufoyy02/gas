@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.cengalabs.flatui.FlatUI;
 import com.example.fragment.FirstFragment;
 import com.example.fragment.SecondFragment;
 import com.example.fragment.ThirdFragment;
@@ -17,6 +18,9 @@ public class MainActivity extends IndicatorFragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setBackgroundDrawable(
+				FlatUI.getActionBarDrawable(this,
+						MyApplication.getInstance().Theme, false, 2));
 		init();
 	}
 

@@ -2,7 +2,7 @@
 
     <style name="myAppTheme" parent="@android:Theme.Holo.Light">
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowNoTitle">false</item>
         <item name="android:windowBackground">@android:color/white</item>
     </style>
 
