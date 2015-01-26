@@ -6,29 +6,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="46dp" >
-
-        <ImageView
-            android:id="@+id/tv_home_add"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/icon_add" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="油耗软件"
-            android:textColor="@color/green"
-            android:textSize="18sp" />
-    </RelativeLayout>
-
     <TextView style="@style/line" />
 
     <com.example.ui.base.TitleIndicator

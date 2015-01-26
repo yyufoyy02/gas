@@ -1,9 +1,15 @@
 <resources>
 
-    <style name="myAppTheme" parent="@android:Theme.Holo.Light">
+    <style name="myAppTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">false</item>
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

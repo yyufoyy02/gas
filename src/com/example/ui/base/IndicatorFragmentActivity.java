@@ -22,12 +22,13 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 
+import com.example.gas.BaseActivity;
 import com.example.gas.R;
 import com.example.ui.base.TitleIndicator.OnTitleClickListener;
 
 @SuppressWarnings("static-access")
-public abstract class IndicatorFragmentActivity extends FragmentActivity
-		implements OnPageChangeListener {
+public abstract class IndicatorFragmentActivity extends BaseActivity implements
+		OnPageChangeListener {
 
 	private ArrayList<OnMainFragmenToTopListener> mOnToTopListeners = new ArrayList<OnMainFragmenToTopListener>();
 	private static final String TAG = "DxFragmentActivity";
@@ -38,7 +39,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	protected int mCurrentTab = 0;
 	protected int mLastTab = -1;
 
-	// ´æ·ÅÑ¡Ïî¿¨ĞÅÏ¢µÄÁĞ±í
+	// ï¿½ï¿½ï¿½Ñ¡ï¿½î¿¨ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ğ±ï¿½
 	protected ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
 
 	// viewpager adapter
@@ -47,9 +48,8 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	// viewpager
 	protected ViewPager mPager;
 
-	// Ñ¡Ïî¿¨¿Ø¼ş
 	protected TitleIndicator mIndicator;
-	// »¬¶¯Ê±¼ä
+
 	private int mMyDuration;
 	private FixedSpeedScroller mScroller;
 
@@ -109,10 +109,9 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 		setContentView(getMainViewResId());
 		initViews();
 
-		// ÉèÖÃviewpagerÄÚ²¿Ò³ÃæÖ®¼äµÄ¼ä¾à
 		mPager.setPageMargin(getResources().getDimensionPixelSize(
 				R.dimen.page_margin_width));
-		// ÉèÖÃviewpagerÄÚ²¿Ò³Ãæ¼ä¾àµÄdrawable
+
 		mPager.setPageMarginDrawable(R.color.green);
 	}
 
@@ -130,9 +129,9 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	private final void initViews() {
-		// »¬¶¯Ê±¼ä
+
 		mMyDuration = 150;
-		// ÕâÀï³õÊ¼»¯½çÃæ
+
 		mCurrentTab = supplyTabs(mTabs);
 		Intent intent = getIntent();
 		if (intent != null) {
@@ -174,7 +173,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	/**
-	 * Ìí¼ÓÒ»¸öÑ¡Ïî¿¨
+	 * 
 	 * 
 	 * @param tab
 	 */
@@ -184,7 +183,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	/**
-	 * ´ÓÁĞ±íÌí¼ÓÑ¡Ïî¿¨
+	 * 
 	 * 
 	 * @param tabs
 	 */
@@ -230,10 +229,10 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	/**
-	 * Ìø×ªµ½ÈÎÒâÑ¡Ïî¿¨
+	 * ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½î¿¨
 	 * 
 	 * @param tabId
-	 *            Ñ¡Ïî¿¨ÏÂ±ê
+	 *            Ñ¡ï¿½î¿¨ï¿½Â±ï¿½
 	 */
 	public void navigate(int tabId) {
 		for (int index = 0, count = mTabs.size(); index < count; index++) {
@@ -249,7 +248,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	/**
-	 * ·µ»Ølayout id
+	 * ï¿½ï¿½ï¿½ï¿½layout id
 	 * 
 	 * @return layout id
 	 */
@@ -258,7 +257,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	/**
-	 * ÔÚÕâÀïÌá¹©ÒªÏÔÊ¾µÄÑ¡Ïî¿¨Êı¾İ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©Òªï¿½ï¿½Ê¾ï¿½ï¿½Ñ¡ï¿½î¿¨ï¿½ï¿½ï¿½ï¿½
 	 */
 	protected abstract int supplyTabs(List<TabInfo> tabs);
 
@@ -272,7 +271,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	/**
-	 * µ¥¸öÑ¡Ïî¿¨Àà£¬Ã¿¸öÑ¡Ïî¿¨°üº¬Ãû×Ö£¬Í¼±êÒÔ¼°ÌáÊ¾£¨¿ÉÑ¡£¬Ä¬ÈÏ²»ÏÔÊ¾£©
+	 *
 	 */
 	public static class TabInfo implements Parcelable {
 
