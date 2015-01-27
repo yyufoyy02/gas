@@ -1,23 +1,21 @@
 package com.example.gas;
 
-import java.util.List;
-
-import android.util.Log;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.util.TimeUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.factory.XDbFactory;
 import com.example.model.GasModel;
+import com.example.myutils.MyStringUtil;
+import com.example.myutils.MyTimeUtils;
 import com.example.myutils.MyToast;
-import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.lidroid.xutils.view.annotation.event.OnClick;
 
 public class GasEditActivity extends BaseActivity implements
 		OnMenuItemClickListener {
@@ -64,24 +62,125 @@ public class GasEditActivity extends BaseActivity implements
 	public void initData() {
 		// TODO Auto-generated method stub
 		setTitle("增加");
+		edtDate.setInputType(InputType.TYPE_CLASS_DATETIME);
+		edtTime.setInputType(InputType.TYPE_CLASS_DATETIME);
+		edtAmount.setInputType(InputType.TYPE_CLASS_PHONE);
+		initEdit(edtAmount);
+		edtPrice.setInputType(InputType.TYPE_CLASS_PHONE);
+		initEdit(edtPrice);
+		edtOil.setInputType(InputType.TYPE_CLASS_PHONE);
+		initEdit(edtOil);
+		edtMileage.setInputType(InputType.TYPE_CLASS_NUMBER);
+	}
 
-		// GasModel mGasModel = new GasModel();
-		// mGasModel.setAmount(99);
-		// mGasModel.setData("hhhhhhhhh");
-		// mGasModel.setPrice(99.99);
-		// mGasModel.setMileage(99);
-		// GasModel mGasModel2 = new GasModel();
-		// mGasModel2.setAmount(888);
-		// mGasModel2.setData("kkkkkkkkkk");
-		// mGasModel2.setPrice(8888.8);
-		// try {
-		// XDbFactory.getInstance().getDB().save(mGasModel);
-		// XDbFactory.getInstance().getDB().save(mGasModel2);
-		// } catch (DbException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+	private void initEdit(final EditText edit) {
 
+		edit.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				if (s.toString().contains(".")) {
+					if (s.length() - 1 - s.toString().indexOf(".") > 2) {
+						s = s.toString().subSequence(0,
+								s.toString().indexOf(".") + 3);
+						edit.setText(s);
+						edit.setSelection(s.length());
+					}
+				}
+				if (s.toString().trim().substring(0).equals(".")) {
+					s = "0" + s;
+					edit.setText(s);
+					edit.setSelection(2);
+				}
+
+				if (s.toString().startsWith("0")
+						&& s.toString().trim().length() > 1) {
+					if (!s.toString().substring(1, 2).equals(".")) {
+						edit.setText(s.subSequence(0, 1));
+						edit.setSelection(1);
+						return;
+					}
+				}
+				if (s.toString().indexOf("..") > 0) {
+					s = s.toString().replace("..", ".");
+					edit.setText(s);
+					edit.setSelection(s.length());
+				}
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
+	}
+
+	private void submit() {
+		if (MyStringUtil.isEmpty(edtDate.getText().toString())) {
+			MyToast.showToast(mContext, "请填写日期", 1500);
+			return;
+		} else if (MyStringUtil.isEmpty(edtTime.getText().toString())) {
+			MyToast.showToast(mContext, "请填写时间", 1500);
+			return;
+		} else if (MyStringUtil.isEmpty(edtMileage.getText().toString())) {
+			MyToast.showToast(mContext, "请填写里程", 1500);
+			return;
+		} else if (MyStringUtil.isEmpty(edtPrice.getText().toString())) {
+			MyToast.showToast(mContext, "请填写单价", 1500);
+			return;
+		} else if (MyStringUtil.isEmpty(edtAmount.getText().toString())) {
+			MyToast.showToast(mContext, "请填写金额", 1500);
+			return;
+		} else if (MyStringUtil.isEmpty(edtOil.getText().toString())) {
+			MyToast.showToast(mContext, "请填写油量", 1500);
+			return;
+		} else {
+			GasModel mGasModel = new GasModel();
+			mGasModel.setAmount(Double.parseDouble(edtAmount.getText()
+					.toString()));
+			long data = MyTimeUtils.getTimestampFromString(edtDate.getText()
+					.toString(), MyTimeUtils.FORMAT_DATE);
+			if (data != 0) {
+				mGasModel.setData(data);
+			} else {
+				MyToast.showToast(mContext, "日期格式错误", 1500);
+				return;
+			}
+			long time = MyTimeUtils.getTimestampFromString(edtTime.getText()
+					.toString(), MyTimeUtils.FORMAT_TIME);
+			if (time != 0) {
+				mGasModel.setTime(time);
+			} else {
+				MyToast.showToast(mContext, "时间格式错误", 1500);
+				return;
+			}
+			mGasModel.setPrice(Double
+					.parseDouble(edtPrice.getText().toString()));
+			mGasModel.setMileage(Integer.parseInt(edtMileage.getText()
+					.toString()));
+
+			mGasModel.setOil(Double.parseDouble(edtOil.getText().toString()));
+
+			// try {
+			// XDbFactory.getInstance().getDB().save(mGasModel);
+			// } catch (DbException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// MyToast.showToast(mContext, "保存失败", 1500);
+			// return;
+			// }
+			// finish();
+		}
 	}
 
 	@Override
@@ -109,7 +208,7 @@ public class GasEditActivity extends BaseActivity implements
 			// }
 			// if (result != null)
 			// Log.e("aa", result.toString());
-			finish();
+			submit();
 			break;
 
 		default:

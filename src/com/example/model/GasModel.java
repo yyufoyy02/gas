@@ -15,9 +15,9 @@ public class GasModel extends BaseModel implements Serializable {
 	}
 
 	@Column(column = "data")
-	private String data;
+	private long data;
 	@Column(column = "time")
-	private String time;
+	private long time;
 	@Column(column = "mileage")
 	private int mileage;
 	@Column(column = "price")
@@ -27,19 +27,19 @@ public class GasModel extends BaseModel implements Serializable {
 	@Column(column = "oil")
 	private double oil;
 
-	public String getData() {
-		return MyStringUtil.isEmpty(data, "");
+	public long getData() {
+		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(long data) {
 		this.data = data;
 	}
 
-	public String getTime() {
-		return MyStringUtil.isEmpty(time, "");
+	public long getTime() {
+		return time;
 	}
 
-	public void setTime(String time) {
+	public void setTime(long time) {
 		this.time = time;
 	}
 
