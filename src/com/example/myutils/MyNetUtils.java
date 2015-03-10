@@ -63,12 +63,22 @@ public class MyNetUtils
 	 */
 	public static void openSetting(Activity activity)
 	{
-		Intent intent = new Intent("/");
-		ComponentName cm = new ComponentName("com.android.settings",
-				"com.android.settings.WirelessSettings");
-		intent.setComponent(cm);
-		intent.setAction("android.intent.action.VIEW");
-		activity.startActivityForResult(intent, 0);
+	Intent intent = null;
+				/**
+				 * 判断手机系统的版本！如果API大于10 就是3.0+ 因为3.0以上的版本的设置和3.0以下的设置不一样，调用的方法不同
+				 */
+				if (android.os.Build.VERSION.SDK_INT > 10) {
+					intent = new Intent(
+							android.provider.Settings.ACTION_WIFI_SETTINGS);
+				} else {
+					intent = new Intent();
+					ComponentName component = new ComponentName(
+							"com.android.settings",
+							"com.android.settings.WirelessSettings");
+					intent.setComponent(component);
+					intent.setAction("android.intent.action.VIEW");
+				}
+				startActivity(intent);
 	}
 
 }
