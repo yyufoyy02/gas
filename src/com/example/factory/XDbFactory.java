@@ -6,7 +6,7 @@ import com.lidroid.xutils.exception.DbException;
 import android.content.Context;
 
 /**
- * 数据库工厂
+ * 数据库工厂a
  * 
  * @author LWJ
  * 
